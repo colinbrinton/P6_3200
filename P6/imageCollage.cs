@@ -143,6 +143,11 @@ namespace P6
             }
         }
 
+        public bool isActive()
+        {
+            return active;
+        }
+
 
     }
 }

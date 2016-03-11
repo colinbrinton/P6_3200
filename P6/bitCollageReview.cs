@@ -6,7 +6,15 @@ namespace P6
     class bitReviewCollage : bitCollage, IReview
     {
         review bitReview;
-         public bitReviewCollage(List<int> col, uint scr, uint rnk, bool fr, int dt) : base(col)
+        const uint DFLT_SCORE = 3;
+        const uint DFLT_RANK = 50;
+        const bool DFLT_FREE = true;
+        const int DFLT_DATE = 20161902;
+        const int SCORE_MIN = 1;
+
+        const int RANK_OUTOF = 100;
+         public bitReviewCollage(List<int> col = null, uint scr = DFLT_SCORE, uint rnk = DFLT_RANK, 
+             bool fr = DFLT_FREE, int dt = DFLT_DATE) : base(col)
         {
             bitReview = new review(scr, rnk, fr, dt);
         }
