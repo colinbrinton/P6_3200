@@ -39,7 +39,7 @@ namespace P6
     {
         protected static Random rnd = new Random();
         protected const int NULL = 0;
-        protected const List<int> NULL_COL = null;
+        //protected List<int> NULL_COL = new List<int>();
         protected const int COL_MIN = 10000; //May be changed to accommodate an image database with a different 
         protected const int COL_MAX = 100000;//  amount of images.
         protected List<int> collage;
@@ -54,11 +54,14 @@ namespace P6
         //              selection of images within their database. Will not allow for
         //              duplicate images.
         //postconditions: valid imageCollage object ready to use
-        public imageCollage(List<int> col = NULL_COL)
+        public imageCollage(List<int> col = null)
         {
             active = true;
-            collage = new List<int>(col);
-            displaySize = collage.Count;
+            if (col != null)
+            {
+                collage = new List<int>(col);
+                displaySize = collage.Count;
+            }
         }
 
         //preconditions: called on a properly allocated imageCollage object

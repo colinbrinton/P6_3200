@@ -4,31 +4,39 @@ using System.Collections.Generic;
 
 namespace P6
 {
-    class cyclicReviewCollage : cyclicCollage, reviewI
+    class cyclicReviewCollage : cyclicCollage, IReview
     {
         review cyclicReview;
+        const uint DFLT_SCORE = 3;
+        const uint DFLT_RANK = 50;
+        const bool DFLT_FREE = true;
+        const int DFLT_DATE = 20161902;
+        const int SCORE_MIN = 1;
 
-         public cyclicReviewCollage(List<int> col, uint scr, uint rnk, bool fr, int dt, int shft) : base(col, shft)
+        const int RANK_OUTOF = 100;
+
+         public cyclicReviewCollage(List<int> col = null, uint scr = DFLT_SCORE, uint rnk = DFLT_RANK, bool fr = DFLT_FREE, int dt = DFLT_DATE,
+             int shft = DEFAUL_SHIFT) : base(col, shft)
         {
             cyclicReview = new review(scr, rnk, fr, dt);
         }
 
-        public uint reviewI.getRawScore()
+        uint IReview.getRawScore()
         {
             return cyclicReview.getRawScore();
         }
 
-        public uint reviewI.getWeightedScore()
+        uint IReview.getWeightedScore()
         {
             return cyclicReview.getWeightedScore();
         }
 
-        public bool reviewI.wasFree()
+        bool IReview.wasFree()
         {
             return cyclicReview.wasFree();
         }
 
-        public int reviewI.getDate()
+        int IReview.getDate()
         {
             return cyclicReview.getDate();
         }

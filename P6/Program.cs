@@ -25,10 +25,19 @@ namespace P6
             bitCollage testBit = new bitCollage(generateCollage());
             displayCollage(testBit.getDisplay());
 
+            IReview[] testArray = new IReview[3];
+
+            reviewCollage testObj = new reviewCollage();
+
+            testArray[0] = new reviewCollage();
+
+   
+
             Console.WriteLine();
             Console.Write("Press any key to exit...");
             Console.ReadKey(); //Input
-           
+
+         
         }
 
         static List<int> generateCollage(int size = DEFAULT_SIZE)

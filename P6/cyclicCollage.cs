@@ -21,7 +21,7 @@ namespace P6
 {
     class cyclicCollage : imageCollage
     {
-        const int DEFAUL_SHIFT = 2;
+        protected const int DEFAUL_SHIFT = 2;
         private int shift;
 
         //Description - Public default constructor, accepts the desired number of image
@@ -30,7 +30,7 @@ namespace P6
         //              duplicate images. Also allows for the object's display shift
         //              value to be set during construction. (Default to 2).
         //postconditions: valid cyclicCollage object ready to use
-        public cyclicCollage(List<int> col = NULL_COL, int shft = DEFAUL_SHIFT) : base(col)
+        public cyclicCollage(List<int> col = null, int shft = DEFAUL_SHIFT) : base(col)
         {
             shift = shft;
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace P6
 {
-    class bitReviewCollage : bitCollage, reviewI
+    class bitReviewCollage : bitCollage, IReview
     {
         review bitReview;
          public bitReviewCollage(List<int> col, uint scr, uint rnk, bool fr, int dt) : base(col)
@@ -11,22 +11,22 @@ namespace P6
             bitReview = new review(scr, rnk, fr, dt);
         }
 
-         public uint reviewI.getRawScore()
+         uint IReview.getRawScore()
          {
              return bitReview.getRawScore();
          }
 
-         public uint reviewI.getWeightedScore()
+         uint IReview.getWeightedScore()
          {
              return bitReview.getWeightedScore();
          }
 
-         public bool reviewI.wasFree()
+         bool IReview.wasFree()
          {
              return bitReview.wasFree();
          }
 
-         public int reviewI.getDate()
+         int IReview.getDate()
          {
              return bitReview.getDate();
          }

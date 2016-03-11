@@ -4,31 +4,39 @@ using System.Collections.Generic;
 namespace P6
 {
   
-    class reviewCollage : imageCollage, reviewI
+    class reviewCollage : imageCollage, IReview
     {
         review imageReview;
+        const uint DFLT_SCORE = 3;
+        const uint DFLT_RANK = 50;
+        const bool DFLT_FREE = true;
+        const int DFLT_DATE = 20161902;
+        const int SCORE_MIN = 1;
 
-        public reviewCollage(List<int> col, uint scr, uint rnk, bool fr, int dt) : base(col)
+        const int RANK_OUTOF = 100;
+
+        public reviewCollage(List<int> col = null, uint scr = DFLT_SCORE, uint rnk = DFLT_RANK, bool fr = DFLT_FREE, int dt = DFLT_DATE)
+            : base(col)
         {
             imageReview = new review(scr, rnk, fr, dt);
         }
 
-        public uint reviewI.getRawScore()
+        uint IReview.getRawScore()
         {
             return imageReview.getRawScore();
         }
 
-        public uint reviewI.getWeightedScore()
+        uint IReview.getWeightedScore()
         {
             return imageReview.getWeightedScore();
         }
 
-        public bool reviewI.wasFree()
+        bool IReview.wasFree()
         {
             return imageReview.wasFree();
         }
 
-        public int reviewI.getDate()
+        int IReview.getDate()
         {
             return imageReview.getDate();
         }

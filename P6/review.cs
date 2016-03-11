@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P6
 {
-    interface reviewI
+    interface IReview
     {
         uint getRawScore();
         uint getWeightedScore();
@@ -14,15 +14,15 @@ namespace P6
         int getDate();
     }
 
-    class review
+    class review : IReview
     {
-        static const uint DFLT_SCORE = 3;
-        static const uint DFLT_RANK = 50;
-        static const bool DFLT_FREE = true;
-        static const int DFLT_DATE = 20161902;
-        static const int SCORE_MIN = 1;
+        const uint DFLT_SCORE = 3;
+        const uint DFLT_RANK = 50;
+        const bool DFLT_FREE = true;
+        const int DFLT_DATE = 20161902;
+        const int SCORE_MIN = 1;
 
-        static const int RANK_OUTOF = 100;
+        const int RANK_OUTOF = 100;
 
         uint score;
         uint rank;
@@ -30,7 +30,7 @@ namespace P6
         int date;
         bool free;
 
-        public review(uint scr, uint rnk, bool fr, int dt)
+        public review(uint scr = DFLT_SCORE, uint rnk = DFLT_RANK, bool fr = DFLT_FREE, int dt = DFLT_DATE)
         {
             score = scr;
 	        rank = rnk;
